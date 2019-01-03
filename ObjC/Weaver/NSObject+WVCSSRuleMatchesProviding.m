@@ -151,6 +151,13 @@ ASDISPLAYNODE_INLINE AS_WARN_UNUSED_RESULT NSString *NSHexStringFromColor(UIColo
 
 #pragma mark - Layout specs
 
+// This needs to stay in sync with Texture
+#ifndef AS_ENABLE_LAYOUTSPECS
+  #define AS_ENABLE_LAYOUTSPECS 1
+#endif
+
+#if AS_ENABLE_LAYOUTSPECS
+
 @implementation ASLayoutSpec (PDCSSRuleMatchesProviding)
 
 - (NSArray<NSString *> *)wv_ruleMatchNames
@@ -251,6 +258,8 @@ ASDISPLAYNODE_INLINE AS_WARN_UNUSED_RESULT NSString *NSHexStringFromColor(UIColo
 }
 
 @end
+
+#endif // AS_ENABLE_LAYOUTSPECS
 
 #pragma mark - Display nodes
 
